@@ -1,0 +1,41 @@
+ .u-section-1 {
+  background-image: none;
+}
+
+.u-section-1 .u-sheet-1 {
+  min-height: 416px;
+}
+
+.u-section-1 .u-text-1 {
+  font-weight: normal;
+  margin: 92px auto 0 100px;
+}
+
+.u-section-1 .u-form-1 {
+  height: 217px;
+  width: 940px;
+  margin: 16px auto 60px;
+}
+
+.u-section-1 .u-btn-1 {
+  background-image: none;
+  border-style: none;
+}
+
+@media (max-width: 991px) {
+  .u-section-1 .u-form-1 {
+    width: 720px;
+  }
+}
+
+@media (max-width: 767px) {
+  .u-section-1 .u-form-1 {
+    width: 540px;
+  }
+}
+
+@media (max-width: 575px) {
+  .u-section-1 .u-form-1 {
+    width: 340px;
+  }
+}
