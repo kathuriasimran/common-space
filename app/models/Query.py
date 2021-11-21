@@ -26,5 +26,5 @@ def insert(_title,_body):
         return True
 
 def fetch_all():
-    blog = Query.query.all()
+    blog = Query.query.order_by(Query.date_posted.desc()).all()
     return (blog)

@@ -3,12 +3,12 @@
 }
 
 .u-section-1 .u-sheet-1 {
-  min-height: 416px;
+  min-height: 100vh;
 }
 
 .u-section-1 .u-text-1 {
   font-weight: normal;
-  margin: 92px auto 0 100px;
+  margin: 105px auto 0 100px;
 }
 
 .u-section-1 .u-form-1 {
@@ -20,6 +20,13 @@
 .u-section-1 .u-btn-1 {
   background-image: none;
   border-style: none;
+}
+
+@media (max-width: 1199px) {
+  .u-section-1 .u-form-1 {
+    margin-left: 0;
+    margin-right: 0;
+  }
 }
 
 @media (max-width: 991px) {

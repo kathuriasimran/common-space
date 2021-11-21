@@ -27,7 +27,7 @@
   </head>
   <body class="u-body"><header class="u-clearfix u-header u-palette-3-light-2 u-sticky u-sticky-7302 u-header" id="sec-833f"><div class="u-clearfix u-sheet u-valign-middle-sm u-valign-middle-xs u-sheet-1">
         <p class="u-text u-text-default u-text-1">
-          <a class="u-active-none u-border-2 u-btn u-btn-round u-button-style u-hover-none u-none u-radius-1 u-text-black u-btn-1" href="Feeds.html" data-page-id="96290832">COMMON SPACE<span style="font-size: 1.1875rem;"></span>
+          <a class="u-active-none u-border-2 u-btn u-btn-round u-button-style u-hover-none u-none u-radius-1 u-text-black u-btn-1" href="{{url_for('feed')}}" data-page-id="96290832">COMMON SPACE<span style="font-size: 1.1875rem;"></span>
           </a>
         </p>
         <nav class="u-menu u-menu-dropdown u-offcanvas u-menu-1">
@@ -40,9 +40,9 @@
             </a>
           </div>
           <div class="u-custom-menu u-nav-container">
-            <ul class="u-nav u-spacing-30 u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-border-2 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-grey-90 u-text-grey-90 u-text-hover-grey-90" href="Feeds.html" style="padding: 10px 0px;">Feeds</a>
-</li><li class="u-nav-item"><a class="u-border-2 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-grey-90 u-text-grey-90 u-text-hover-grey-90" href="QnA.html" style="padding: 10px 0px;">QnA</a>
-</li><li class="u-nav-item"><a class="u-border-2 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-grey-90 u-text-grey-90 u-text-hover-grey-90" href="Profile.html" style="padding: 10px 0px;">Profile</a>
+            <ul class="u-nav u-spacing-30 u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-border-2 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-grey-90 u-text-grey-90 u-text-hover-grey-90" href="{{url_for('feed')}}" style="padding: 10px 0px;">Feeds</a>
+</li><li class="u-nav-item"><a class="u-border-2 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-grey-90 u-text-grey-90 u-text-hover-grey-90" href="{{url_for('QnA')}}" style="padding: 10px 0px;">QnA</a>
+</li><li class="u-nav-item"><a class="u-border-2 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-grey-90 u-text-grey-90 u-text-hover-grey-90" href="{{url_for('profile')}}" style="padding: 10px 0px;">Profile</a>
 </li><li class="u-nav-item"><a class="u-border-2 u-border-active-palette-1-base u-border-hover-palette-1-light-1 u-border-no-left u-border-no-right u-border-no-top u-button-style u-nav-link u-text-active-grey-90 u-text-grey-90 u-text-hover-grey-90" href="mailto:Kathuriasimran7243@gmail.com" style="padding: 10px 0px;">Contact</a>
 </li></ul>
           </div>
@@ -50,9 +50,9 @@
             <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
               <div class="u-inner-container-layout u-sidenav-overflow">
                 <div class="u-menu-close"></div>
-                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Feeds.html" style="padding: 10px 0px;">Feeds</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="QnA.html" style="padding: 10px 0px;">QnA</a>
-</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Profile.html" style="padding: 10px 0px;">Profile</a>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{url_for('feed')}}" style="padding: 10px 0px;">Feeds</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{url_for('QnA')}}" style="padding: 10px 0px;">QnA</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="{{url_for('profile')}}" style="padding: 10px 0px;">Profile</a>
 </li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="mailto:Kathuriasimran7243@gmail.com" style="padding: 10px 0px;">Contact</a>
 </li></ul>
               </div>
@@ -75,7 +75,7 @@ mollit anim id est laborum.
         </p>
         <h5 class="u-custom-font u-text u-text-3">By: username</h5>
         <div class="u-border-3 u-border-grey-dark-1 u-line u-line-horizontal u-line-2"></div>
-        <a href="Add-Answer.html" data-page-id="3098207045" class="u-active-palette-2-base u-border-none u-btn u-btn-round u-button-style u-hover-palette-3-light-1 u-palette-3-base u-radius-50 u-btn-2">Add Answer<br>
+        <a href="{{url_for('Add_answers')}}" data-page-id="3098207045" class="u-active-palette-2-base u-border-none u-btn u-btn-round u-button-style u-hover-palette-3-light-1 u-palette-3-base u-radius-50 u-btn-2">Add Answer<br>
         </a>
       </div>
     </section>
@@ -84,16 +84,6 @@ mollit anim id est laborum.
     <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-bc29"><div class="u-clearfix u-sheet u-sheet-1">
         <p class="u-small-text u-text u-text-variant u-text-1">Created by Simran Kathuria</p>
       </div></footer>
-    <section class="u-backlink u-clearfix u-grey-80">
-      <a class="u-link" href="https://nicepage.com/website-templates" target="_blank">
-        <span>Website Templates</span>
-      </a>
-      <p class="u-text">
-        <span>created with</span>
-      </p>
-      <a class="u-link" href="https://nicepage.app" target="_blank">
-        <span>Best Website Builder</span>
-      </a>. 
-    </section>
+   
   </body>
 </html>

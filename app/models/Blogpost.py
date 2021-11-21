@@ -11,7 +11,7 @@ class Blogposts(db.Model):
     subtitle = db.Column(db.String(50))
     date_posted = db.Column(db.DateTime)
     content = db.Column(db.Text)
-    image_file = db.Column(db.String(20), nullable=False, default='default.jpg')
+    '''image_file = db.Column(db.String(20), nullable=False, default='default.jpg')'''
     author = db.Column(db.String(50) )
 
     def __init__(self, title, subtitle, content ,author):

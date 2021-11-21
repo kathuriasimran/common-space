@@ -71,7 +71,7 @@ def search():
         search_value=form['search']
         search = "%{}%".format(search_value)
         result = Blogpost.search(search)
-        return render_template("/feeds/Feeds.html",blog=result)
+        return render_template("Feeds.html",blog=result)
 
 
 @app.route('/feeds/Add_Post')
@@ -202,3 +202,8 @@ def edit_form():
 @app.route('/answer_page')
 def Answers():
     return render_template('Answer-page.html')
+
+
+@app.route('/add_answer')
+def Add_answers():
+    return render_template('Add-Answer.html')

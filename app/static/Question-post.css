@@ -3,17 +3,18 @@
 }
 
 .u-section-1 .u-sheet-1 {
-  min-height: 582px;
+  min-height: 100vh;
 }
 
 .u-section-1 .u-text-1 {
   font-size: 1.5rem;
-  margin: 95px auto 0;
+  margin: 195px auto 0;
 }
 
 .u-section-1 .u-form-1 {
+  height: 338px;
   width: 570px;
-  margin: 3px auto -16px;
+  margin: 3px auto 60px;
 }
 
 .u-section-1 .u-form-group-1 {
@@ -36,6 +37,8 @@
 @media (max-width: 767px) {
   .u-section-1 .u-form-1 {
     width: 540px;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 
@@ -46,6 +49,5 @@
 
   .u-section-1 .u-form-1 {
     width: 340px;
-    margin-bottom: 60px;
   }
 }
