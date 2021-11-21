@@ -61,7 +61,7 @@ def logout():
 @app.route('/feeds')
 def feed():
     blog=Blogpost.fetch_all()
-    return render_template("Feeds(n).html",blog=blog)
+    return render_template("Feeds.html",blog=blog)
 
 
 @app.route('/feeds/search' , methods=['GET','POST'])
@@ -71,12 +71,12 @@ def search():
         search_value=form['search']
         search = "%{}%".format(search_value)
         result = Blogpost.search(search)
-        return render_template("/feeds/Feeds(n).html",blog=result)
+        return render_template("/feeds/Feeds.html",blog=result)
 
 
 @app.route('/feeds/Add_Post')
 def addpost():
-    return render_template("add-post.html")
+    return render_template("Add-Post.html")
 
 
 @app.route('/feed/Add_post/Add', methods=['GET','POST'])
@@ -98,12 +98,12 @@ def add():
 def post(id):
 
     blog=Blogpost.fetch(id)
-    return render_template("post.html",blog=blog)
+    return render_template("Post.html",blog=blog)
 
 
 @app.route('/feeds/Blog', methods=['GET','POST'])
 def Show_post():
-    return render_template('post.html')
+    return render_template('Post.html')
 
 
 @app.route('/SignUp', methods=['GET','POST'])
@@ -143,12 +143,12 @@ def signup():
         return redirect(url_for('signup_message', msg=msg))
 
     elif request.method == 'GET':
-        return render_template("SignUp.html")
+        return render_template("Register.html")
 
 
 @app.route('/SignUp/<string:msg>')
 def signup_message(msg):
-    return render_template("SignUp.html",msg=msg)
+    return render_template("Register.html",msg=msg)
 
 @app.route('/QnA')
 def QnA():
@@ -159,7 +159,7 @@ def QnA():
 def ask():
     return render_template("Question-post.html")
 
-@app.route('/QnA/ask/Add' ,methods=['GET','POST'])
+@app.route('/QnA/Add_Question' ,methods=['GET','POST'])
 def Qna_add():
     title = request.form['title']
     body = request.form['body']
@@ -199,8 +199,6 @@ def edit_form():
     return redirect(url_for('profile'))
 
 
-'''@app.route('/ab')
-def hello():
-    return render_template
-
-'''
+@app.route('/answer_page')
+def Answers():
+    return render_template('Answer-page.html')

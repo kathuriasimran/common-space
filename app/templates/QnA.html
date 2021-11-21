@@ -7,10 +7,10 @@
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
     <title>QnA</title>
-    <link rel="stylesheet" href="nicepage.css" media="screen">
-<link rel="stylesheet" href="QnA.css" media="screen">
-    <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
-    <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+    <link rel="stylesheet" href="{{url_for('static',filename='nicepage(main).css')}}" media="screen">
+<link rel="stylesheet" href="{{url_for('static',filename='QnA.css')}}" media="screen">
+    <script class="u-script" type="text/javascript" src="{{url_for('static',filename='jquery(main).js')}}" defer=""></script>
+    <script class="u-script" type="text/javascript" src="{{url_for('static',filename='nicepage(main).js')}}" defer=""></script>
     <meta name="generator" content="Nicepage 3.30.2, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
     
@@ -72,27 +72,26 @@
               <a href="#" class="u-border-2 u-border-black u-btn u-btn-round u-btn-submit u-button-style u-hover-black u-none u-radius-50 u-text-black u-text-hover-white u-btn-1">Submit</a>
               <input type="submit" value="submit" class="u-form-control-hidden">
             </div>
-            <div class="u-form-send-message u-form-send-success"> Thank you! Your message has been sent. </div>
-            <div class="u-form-send-error u-form-send-message"> Unable to send your message. Please fix errors then try again. </div>
-            <input type="hidden" value="" name="recaptchaResponse">
           </form>
         </div>
         <a href="Add-Post.html" data-page-id="392009870" class="u-align-right u-border-2 u-border-black u-btn u-btn-round u-button-style u-hover-black u-none u-radius-36 u-text-black u-text-hover-white u-btn-2">Add post</a><!--blog--><!--blog_options_json--><!--{"type":"Recent","source":"","tags":"","count":""}--><!--/blog_options_json-->
         <div class="u-blog u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-layout-grid u-blog-1">
           <div class="u-repeater u-repeater-1"><!--blog_post-->
+            {% for query in queries %}
             <div class="u-align-left u-blog-post u-container-style u-repeater-item u-shape-rectangle">
               <div class="u-container-layout u-similar-container u-container-layout-1"><!--blog_post_header-->
                 <h2 class="u-align-left-lg u-align-left-md u-blog-control u-text u-text-1">
-                  <a class="u-post-header-link" href="blog/post-5.html"><!--blog_post_header_content-->Post 6 Headline<!--/blog_post_header_content--></a>
+                  <a class="u-post-header-link" href="blog/post-5.html"><!--blog_post_header_content-->{{query.title}}<!--/blog_post_header_content--></a>
                 </h2><!--/blog_post_header-->
-                <a href="Answer-Page.html" data-page-id="89699039" class="u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-btn-3">Answers</a><!--blog_post_metadata-->
+                <a href="{{url_for('Answers')}}" data-page-id="89699039" class="u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-btn-3">Answers</a><!--blog_post_metadata-->
                 <div class="u-align-left-md u-align-left-sm u-align-left-xs u-blog-control u-metadata u-text-grey-40 u-metadata-1"><!--blog_post_metadata_date-->
-                  <span class="u-meta-date u-meta-icon"><!--blog_post_metadata_date_content-->Sun Nov 21 2021<!--/blog_post_metadata_date_content--></span><!--/blog_post_metadata_date--><!--blog_post_metadata_comments-->
-                  <span class="u-meta-comments u-meta-icon"><!--blog_post_metadata_comments_content-->Comments (0)<!--/blog_post_metadata_comments_content--></span><!--/blog_post_metadata_comments-->
+                  <span class="u-meta-date u-meta-icon"><!--blog_post_metadata_date_content-->{{query.date_posted}}<!--/blog_post_metadata_date_content--></span><!--/blog_post_metadata_date--><!--blog_post_metadata_comments-->
+                  <span class="u-meta-comments u-meta-icon"><!--blog_post_metadata_comments_content-->Author <!--/blog_post_metadata_comments_content--></span><!--/blog_post_metadata_comments-->
                 </div><!--/blog_post_metadata--><!--blog_post_content-->
-                <div class="u-align-left-md u-blog-control u-post-content u-text u-text-2"><!--blog_post_content_content-->Sample small text. Lorem ipsum dolor sit amet.<!--/blog_post_content_content--></div><!--/blog_post_content-->
+                <div class="u-align-left-md u-blog-control u-post-content u-text u-text-2"><!--blog_post_content_content-->{{query.date_posted}}<!--/blog_post_content_content--></div><!--/blog_post_content-->
               </div>
             </div><!--/blog_post-->
+            {% endfor %}
           </div>
         </div><!--/blog-->
       </div>
