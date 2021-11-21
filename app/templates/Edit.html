@@ -67,17 +67,17 @@
         <div class="u-clearfix u-layout-wrap u-layout-wrap-1">
           <div class="u-gutter-0 u-layout">
             <div class="u-layout-col">
-              <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
-                <div class="u-container-layout u-valign-bottom u-container-layout-1">
-                  <div alt="" class="u-image u-image-circle u-image-1" data-image-width="626" data-image-height="417"><img class="u-image u-image-1 " src="{{url_for('static',filename='dp.png')}}"/></div>
-                  <a href="https://nicepage.review" class="u-active-palette-4-base u-border-none u-btn u-btn-round u-button-style u-hover-palette-2-light-2 u-palette-2-base u-radius-50 u-btn-1">Upload Avatar</a>
-                </div>
-              </div>
               <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
                 <div class="u-container-layout u-container-layout-2">
-                  <h3 class="u-align-center u-text u-text-default u-text-2">Details</h3>
                   <div class="u-form u-form-1">
-                    <form action="{{url_for('edit_form')}}" method="POST" class="u-clearfix u-form-custom-backend u-form-spacing-17 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 35px;" redirect="true">
+                    <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-1">
+                      <div class="u-container-layout u-valign-bottom u-container-layout-1">
+                        <div alt="" class="u-image u-image-circle u-image-1" data-image-width="626" data-image-height="417"><img class="u-image u-image-1 " src="{{url_for('static',filename='image/profile/'+ user_image)}}"/></div>
+                        <input  form="myform"  type="file" name="file" class="u-border-none u-btn u-btn-round u-button-style u-btn-1"></input>
+                      </div>
+                    </div>
+                    <h3 class="u-align-center u-text u-text-default u-text-2">Details</h3>
+                    <form action="{{url_for('edit_form')}}" name="myform" id="myform" enctype="multipart/form-data"  method="POST" class="u-clearfix u-form-custom-backend u-form-spacing-17 u-form-vertical u-inner-form" source="custom"  style="padding: 35px;" redirect="true">
                       <div class="u-form-group u-form-name">
                         <label for="name-6661" class="u-form-control-hidden u-label"></label>
                         <input type="text" placeholder="Update your firstname" id="name-6661" name="firstname" class="u-border-1 u-border-grey-30 u-input u-input-rectangle u-radius-50 u-white" required="">

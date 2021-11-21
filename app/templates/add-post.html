@@ -67,14 +67,14 @@
             <div class="u-layout-col">
               <div class="u-container-style u-layout-cell u-right-cell u-shape-rectangle u-size-17 u-layout-cell-1">
                 <div class="u-container-layout u-container-layout-1">
-                  <img class="u-image u-image-contain u-image-default u-image-1" src="{{url_for('static',filename='default.jpg')}}" data-image-width="1280" data-image-height="800">
-                  <a href="https://nicepage.com/c/table-html-templates" class="u-border-2 u-border-black u-btn u-btn-round u-button-style u-hover-black u-none u-radius-15 u-text-black u-text-hover-white u-btn-1">Upload Image</a>
+                  <img class="u-image u-image-contain u-image-default u-image-1" src="{{url_for('static',filename='image/blog/default.jpg')}}" data-image-width="1280" data-image-height="800">
+                  <input form="myform" type="file" name="file" class="u-border-2  u-btn u-btn-round u-button-style u-hover-black u-none u-radius-15 u-text-black u-text-hover-white u-btn-1"></input>
                 </div>
               </div>
               <div class="u-align-center u-container-style u-layout-cell u-left-cell u-shape-rectangle u-size-43 u-layout-cell-2">
                 <div class="u-container-layout u-container-layout-2">
                   <div class="u-align-right u-expanded-width-xs u-form u-form-1">
-                    <form action="{{url_for('add')}}" method="POST" class="u-clearfix u-form-custom-backend u-form-spacing-19 u-form-vertical u-inner-form" style="padding: 0;" source="custom" name="form" redirect="true">
+                    <form action="{{url_for('add')}}" enctype="multipart/form-data" id="myform" method="POST" class="u-clearfix u-form-custom-backend u-form-spacing-19 u-form-vertical u-inner-form" style="padding: 0;" source="custom" name="form" redirect="true">
                       <div class="u-form-group u-form-name u-form-group-1">
                         <label for="name-daf4" class="u-form-control-hidden u-label">Name</label>
                         <input type="text" placeholder="Title" id="name-daf4" name="title" class="u-border-2 u-border-white u-input u-input-rectangle u-radius-12 u-white" required="">

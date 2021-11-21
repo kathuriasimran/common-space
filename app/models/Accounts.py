@@ -13,18 +13,18 @@ class Accounts(db.Model):
     username = db.Column(db.String(50))
     email = db.Column(db.String(100))
     password = db.Column(db.String(255))
-    #dp = db.Column(db.LargeBinary) 
-    #rendered_dp = db.Column(db.Text)
+    image_file = db.Column(db.String(200), nullable=False, default='dp.png')
     created_time = db.Column(DateTime(), nullable=False)
 
 
-    def __init__(self, firstname, lastname,username,email,password):
+    def __init__(self, firstname, lastname,username,email,password,image_file):
         self.firstname = firstname
         self.lastname = lastname
         self.username = username
         self.email = email
         self.password = password
         self.created_time = datetime.datetime.now()
+        self.image_file =image_file
     
 
 def account_authenticate(_username,_password):
@@ -41,14 +41,14 @@ def account_exist(_username,_email):
     else:
         return True
 
-def insert( firstname, lastname,username,email,password):
-        insert = Accounts(firstname=firstname, lastname=lastname, username=username, email=email,password=password)
+def insert(firstname, lastname, username, email, password, image_file="dp.png"):
+        insert = Accounts(firstname=firstname, lastname=lastname, username=username, email=email,password=password,image_file=image_file)
         db.session.add(insert)
         db.session.commit()
         return True
 
-def update(_id, firstname, lastname):
-    update=Accounts.query.filter_by(id=_id).update(dict(firstname=firstname, lastname=lastname))
+def update(_id, firstname, lastname,image_file):
+    update=Accounts.query.filter_by(id=_id).update(dict(firstname=firstname, lastname=lastname,image_file=image_file))
     db.session.commit()
 
 

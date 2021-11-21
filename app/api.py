@@ -39,6 +39,8 @@ def authenticate():
             session['loggedin'] = True
             session['id'] = account.id
             session['username']=account.username
+            session['user_image']=account.image_file
+
             # Redirect to home page
             return redirect(url_for('feed'))
         else:
@@ -54,6 +56,7 @@ def logout():
    session.pop('loggedin', None)
    session.pop('id', None)
    session.pop('username', None)
+   session.pop('user_image', None)
    # Redirect to login page
    return redirect(url_for('login'))
 
@@ -61,6 +64,7 @@ def logout():
 @app.route('/feeds')
 def feed():
     blog=Blogpost.fetch_all()
+
     return render_template("Feeds.html",blog=blog)
 
 
@@ -83,11 +87,19 @@ def addpost():
 def add():
     
     title = request.form['title']
+    if 'file'  in request.files:
+        image = request.files['file']
+        image_name = image.filename
+        image_path = os.path.join(app.config['UPLOAD_FOLDER_BLOG'], image_name)
+        image.save(image_path)
+    else:
+        image_name = "default.jpg"
+
     subtitle = request.form['subtitle']
     content = request.form['content']
     author=session['username']
+    insert = Blogpost.insert(title, subtitle, content, author ,image_name)
 
-    insert = Blogpost.insert(title, subtitle, content, author )
     if insert: 
         return redirect(url_for('feed'))
     else:
@@ -187,14 +199,21 @@ def profile():
 
 @app.route('/profile/edit')
 def edit():
-    return render_template('Edit.html', username=session['username'])
+    return render_template('Edit.html', username=session['username'],user_image=session["user_image"])
 
 
 @app.route('/profile/edit/edit_form' , methods=['GET','POST'])
 def edit_form():
     firstname = request.form['firstname']
     lastname = request.form['lastname']
-    Accounts.update(session['id'], firstname, lastname)
+    if 'file'  in request.files:
+        image = request.files['file']
+        image_name = image.filename
+        image_path = os.path.join(app.config['UPLOAD_FOLDER_PROFILE'], image_name)
+        image.save(image_path)
+    else:
+        image_name = "dp.png"
+    Accounts.update(session['id'], firstname, lastname,image_name)
         
     return redirect(url_for('profile'))
 
