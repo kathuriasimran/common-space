@@ -1,5 +1,6 @@
 import re
 from sqlalchemy import Column, Integer, String, DateTime
+from sqlalchemy.orm import query
 from app import db
 import datetime
 import pymysql.cursors 
@@ -16,6 +17,9 @@ class Accounts(db.Model):
     image_file = db.Column(db.String(200), nullable=False, default='dp.png')
     created_time = db.Column(DateTime(), nullable=False)
 
+
+
+    #answer = db.relationship('Comment', backref='answer', lazy=True)
 
     def __init__(self, firstname, lastname,username,email,password,image_file):
         self.firstname = firstname

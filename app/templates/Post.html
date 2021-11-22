@@ -72,7 +72,7 @@
             <h2 class="u-align-center u-blog-control u-text u-text-1">
               <div class="u-post-header-link" ><!--blog_post_header_content-->{{blog.title}}<!--/blog_post_header_content--></div>
             </h2><!--/blog_post_header--><!--blog_post_image-->
-            <img alt="" class="u-align-center u-blog-control u-image u-image-default u-image-1" src="{{url_for('static',filename='image/default.jpg')}}" data-image-width="582" data-image-height="631"><!--/blog_post_image--><!--blog_post_content-->
+            <img alt="" class="u-align-center u-blog-control u-image u-image-default u-image-1" src=" {{url_for('static',filename='image/blog/'+blog.image_file)}}"  data-image-width="582" data-image-height="631"><!--/blog_post_image--><!--blog_post_content-->
             <div class="u-align-left u-blog-control u-post-content u-text u-text-2"><!--blog_post_content_content-->{{blog.content}}<!--/blog_post_content_content--></div><!--/blog_post_content-->
           </div>
         </div><!--/blog_post--><!--/post_details-->
