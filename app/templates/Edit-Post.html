@@ -3,12 +3,12 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="utf-8">
-    <meta name="keywords" content="Post 6 Headline, Post 5 Headline, Post 4 Headline">
+    <meta name="keywords" content="">
     <meta name="description" content="">
     <meta name="page_type" content="np-template-header-footer-from-plugin">
-    <title>QnA</title>
+    <title>Edit Post</title>
     <link rel="stylesheet" href="{{url_for('static',filename='nicepage(main).css')}}" media="screen">
-<link rel="stylesheet" href="{{url_for('static',filename='QnA.css')}}" media="screen">
+<link rel="stylesheet" href="{{url_for('static',filename='Edit-Post.css')}}" media="screen">
     <script class="u-script" type="text/javascript" src="{{url_for('static',filename='jquery(main).js')}}" defer=""></script>
     <script class="u-script" type="text/javascript" src="{{url_for('static',filename='nicepage(main).js')}}" defer=""></script>
     <meta name="generator" content="Nicepage 3.30.2, nicepage.com">
@@ -21,7 +21,7 @@
 		"name": ""
 }</script>
     <meta name="theme-color" content="#478ac9">
-    <meta property="og:title" content="QnA">
+    <meta property="og:title" content="Edit Post">
     <meta property="og:type" content="website">
   </head>
   <body class="u-body"><header class="u-clearfix u-header u-palette-3-light-2 u-sticky u-sticky-7302 u-header" id="sec-833f"><div class="u-clearfix u-sheet u-valign-middle-sm u-valign-middle-xs u-sheet-1">
@@ -60,43 +60,26 @@
           </div>
         </nav>
       </div></header>
-    <section class="u-align-center u-clearfix u-palette-3-light-3 u-section-1" id="carousel_b5fb">
+    <section class="u-align-center u-clearfix u-palette-3-light-3 u-section-1" id="sec-86ef">
       <div class="u-clearfix u-sheet u-sheet-1">
-        <div class="u-form u-form-1">
-          <form action="#" method="POST" class="u-clearfix u-form-custom-backend u-form-spacing-10 u-form-vertical u-inner-form" source="custom" name="form" style="padding: 10px;" redirect="true">
-            <div class="u-form-group u-form-name">
-              <label for="name-ada1" class="u-form-control-hidden u-label"></label>
-              <input type="text" placeholder="Search" id="name-ada1" name="search" class="u-border-2 u-border-black u-input u-input-rectangle u-palette-3-light-3 u-radius-50" required="">
-            </div>
-            <div class="u-align-left-xs u-align-right-lg u-align-right-md u-align-right-sm u-align-right-xl u-form-group u-form-submit">
-              <a href="" class="u-border-2 u-border-black u-btn u-btn-round u-btn-submit u-button-style u-hover-black u-none u-radius-50 u-text-black u-text-hover-white u-btn-1">Search</a>
-              <input type="submit" value="submit" class="u-form-control-hidden">
-            </div>
-          </form>
-        </div>
-        <a href="{{url_for('ask')}}" data-page-id="392009870" class="u-align-right u-border-2 u-border-black u-btn u-btn-round u-button-style u-hover-black u-none u-radius-36 u-text-black u-text-hover-white u-btn-2">Add Question</a><!--blog--><!--blog_options_json--><!--{"type":"Recent","source":"","tags":"","count":""}--><!--/blog_options_json-->
-        <div class="u-blog u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-layout-grid u-blog-1">
-          <div class="u-repeater u-repeater-1"><!--blog_post-->
-            {% for query in queries %}
-            <div class="u-align-left u-blog-post u-container-style u-repeater-item u-shape-rectangle">
-              <div class="u-container-layout u-similar-container u-container-layout-1"><!--blog_post_header-->
-                <h2 class="u-align-left-lg u-align-left-md u-blog-control u-text u-text-1">
-                  <a class="u-post-header-link" href="blog/post-5.html"><!--blog_post_header_content-->{{query.title}}<!--/blog_post_header_content--></a>
-                </h2><!--/blog_post_header-->
-                <a href="{{url_for('Answers',query_id = query.id)}}" data-page-id="89699039" class="u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-btn-3">Answers</a><!--blog_post_metadata-->
-                <div class="u-align-left-md u-align-left-sm u-align-left-xs u-blog-control u-metadata u-text-grey-40 u-metadata-1"><!--blog_post_metadata_date-->
-                  <span class="u-meta-date u-meta-icon"><!--blog_post_metadata_date_content-->{{query.date_posted.strftime('%Y-%m-%d')}}<!--/blog_post_metadata_date_content--></span><!--/blog_post_metadata_date--><!--blog_post_metadata_comments-->
-                  <span class="u-meta-comments u-meta-icon"><!--blog_post_metadata_comments_content-->{{query.username}} <!--/blog_post_metadata_comments_content--></span><!--/blog_post_metadata_comments-->
-                </div><!--/blog_post_metadata--><!--blog_post_content-->
-              </div>
-            </div><!--/blog_post-->
-            {% endfor %}  
+        <h4 class="u-align-center u-text u-text-1">Your Posts</h4>
+        {% for post in blog%}
+        <div class="u-align-center u-container-style u-group u-group-1">
+          <div class="u-container-layout">
+            <h5 class="u-align-left u-text u-text-default u-text-2">{{post.title}} </h5>
+            <h6 class="u-align-left u-text u-text-default u-text-2">{{post.subtitle}}</h6>
+            <p class="u-align-left u-text u-text-default u-text-3">{{post.content}} 
+            </p>
+            <h6 class="u-align-left u-text u-text-default u-text-3">Date: {{post.date_posted.strftime('%Y-%m-%d')}}<span style="font-weight: 400;"></span></h6>
+              <br>
+            <a href="{{url_for('delete_post',id=post.id)}}" class="u-active-none u-border-2 u-border-active-palette-2-dark-1 u-border-hover-palette-2-base u-border-palette-1-base u-btn u-button-style u-hover-none u-none u-text-hover-palette-2-base u-text-palette-1-base u-btn-2">DELETE</a>
           </div>
-        </div><!--/blog-->
+        </div>
+        {% endfor %}
       </div>
     </section>
     
-   
+    
     <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-bc29"><div class="u-clearfix u-sheet u-sheet-1">
         <p class="u-small-text u-text u-text-variant u-text-1">Created by Simran Kathuria</p>
       </div></footer>

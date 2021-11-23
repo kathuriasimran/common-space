@@ -13,7 +13,7 @@ class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True,  autoincrement=True)
     content = db.Column(db.Text, nullable=False)
     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.datetime.now())
-    post_id = db.Column(db.Integer, db.ForeignKey('query.id'), nullable=False)
+    post_id = db.Column(db.Integer, db.ForeignKey('query.id',ondelete='SET NULL'), nullable=False)
     username = db.Column(db.String(50))
     
 
@@ -33,3 +33,5 @@ def insert(answer,query_id, username):
 def fetch_answers(query_id):
     answers = Comment.query.filter_by(post_id = query_id).all()
     return (answers)
+
+

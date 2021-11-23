@@ -66,11 +66,8 @@
           <a href="{{url_for('Add_answer',query_id = query.id,msg=' ' )}}" data-page-id="3098207045" class="u-active-palette-2-base u-border-none u-btn u-btn-round u-button-style u-hover-palette-3-light-1 u-palette-3-base u-radius-50 u-btn-1">Add Answer<br>
           </a>
           <h3 class="u-text u-text-1">{{query.body}}</h3>
-          
           <div class="u-align-center u-container-style u-group u-group-1">
-            
             <div class="u-container-layout">
-              
               <div class="u-border-2 u-border-palette-5-base u-expanded-width-sm u-expanded-width-xs u-line u-line-horizontal u-opacity u-opacity-35 u-line-2"></div>
               {% for answer in answers%}
               <p class="u-text u-text-default u-text-2">{{answer.content}}</p>

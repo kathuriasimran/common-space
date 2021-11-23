@@ -1,5 +1,6 @@
 from enum import Flag
 from os import access, name
+from sqlalchemy.orm import query
    
 
 from sqlalchemy.orm.query import Query
@@ -199,6 +200,43 @@ def profile():
         return redirect(url_for('login'))
     else:
         return render_template('Login.html', msg="Login First")
+
+
+
+@app.route('/profile/edit-post')
+def edit_post():
+    if session.get('logged_in') == True:
+        blog=Blogpost.fetch_post_all(session['username'])
+        return render_template("Edit-Post.html", blog=blog)
+    else:
+        return render_template('Login.html', msg="Login First")
+
+@app.route('/profile/edit-post/delete/<int:id>')
+def delete_post(id):
+    if session.get('logged_in') == True:
+        delete=Blogpost.deletepost(id)
+        if delete:
+            return redirect(url_for('edit_post'))
+    else:
+        return render_template('Login.html', msg="Login First")
+
+@app.route('/profile/edit-question')
+def edit_question():
+    if session.get('logged_in') == True:
+        questions=Query.fetch_question_all(session['username'])
+        return render_template("Edit-question.html", questions=questions)
+    else:
+        return render_template('Login.html', msg="Login First")
+
+@app.route('/profile/edit-question/delete/<int:_id>')
+def delete_question(_id):
+    if session.get('logged_in') == True: 
+        #delete_comment=Comment.delete_answers(id)
+        if(Query.deletequestion(_id)):
+            return redirect(url_for('edit_question'))
+    else:
+        return render_template('Login.html', msg="Login First")
+
 
 
 @app.route('/profile/edit')

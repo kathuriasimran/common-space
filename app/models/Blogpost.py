@@ -40,6 +40,16 @@ def fetch_post(username):
     count = Blogposts.query.filter_by(author=username).count()
     return (count)
 
+def fetch_post_all(username):
+    blog = Blogposts.query.filter_by(author=username).all()
+    return (blog)
+
+def deletepost(id):
+    obj = Blogposts.query.filter_by(id=id).one()
+    db.session.delete(obj)
+    db.session.commit()
+    return True
+
 def search(search):
     info = Blogposts.query.filter(Blogposts.content.like(search)).all()
     return (info)
