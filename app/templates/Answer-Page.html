@@ -13,7 +13,7 @@
     <script class="u-script" type="text/javascript" src="{{url_for('static',filename='nicepage(main).js')}}" defer=""></script>
     <meta name="generator" content="Nicepage 3.30.2, nicepage.com">
     <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Merriweather:300,300i,400,400i,700,700i,900,900i|Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i">
-    <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alice:400">
+    <link id="u-page-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400i,700,700i">
     
     
     <script type="application/ld+json">{
@@ -61,28 +61,34 @@
           </div>
         </nav>
       </div></header>
-    <section class="u-clearfix u-palette-3-light-3 u-section-1" id="sec-6701">
-      <div class="u-clearfix u-sheet u-sheet-1">
-        <h3 class="u-text u-text-1">{{query.body}}</h3>
-        <a href="{{url_for('Add_answer',query_id = query.id,msg=' ' )}}" data-page-id="3098207045" class="u-active-palette-2-base u-border-none u-btn u-btn-round u-button-style u-hover-palette-3-light-1 u-palette-3-base u-radius-50 u-btn-2">Add Answer<br>
-        </a>
-
-        <div class="u-border-3 u-border-grey-dark-1 u-line u-line-horizontal u-line-1"></div>
-        {% for answer in answers%}
-        <p class="u-text u-text-2">{{answer.content}}
-        </p>
-        <h6 class="u-custom-font u-text u-text-3">By:{{answer.username}} | Date: {{answer.date_posted.strftime('%Y-%m-%d')}}</h6>
-        <br>
-        <div class="u-border-3 u-border-grey-dark-1 u-line u-line-horizontal u-line-2"></div>
-        {% endfor %}
-        <br><br>
-      </div>
-    </section>
+      <section class="u-clearfix u-palette-3-light-3 u-section-1" id="sec-6701">
+        <div class="u-clearfix u-sheet u-sheet-1">
+          <a href="{{url_for('Add_answer',query_id = query.id,msg=' ' )}}" data-page-id="3098207045" class="u-active-palette-2-base u-border-none u-btn u-btn-round u-button-style u-hover-palette-3-light-1 u-palette-3-base u-radius-50 u-btn-1">Add Answer<br>
+          </a>
+          <h3 class="u-text u-text-1">{{query.body}}</h3>
+          
+          <div class="u-align-center u-container-style u-group u-group-1">
+            
+            <div class="u-container-layout">
+              
+              <div class="u-border-2 u-border-palette-5-base u-expanded-width-sm u-expanded-width-xs u-line u-line-horizontal u-opacity u-opacity-35 u-line-2"></div>
+              {% for answer in answers%}
+              <p class="u-text u-text-default u-text-2">{{answer.content}}</p>
+              <h5 class="u-custom-font u-font-pt-sans u-text u-text-default u-text-3">By:<span style="font-weight: 400;"></span><span style="font-weight: 400;"></span>{{answer.username}}&nbsp;<br>Date: {{answer.date_posted.strftime('%Y-%m-%d')}}&nbsp;
+              </h5>
+              <div class="u-border-2 u-border-palette-5-base u-expanded-width-sm u-expanded-width-xs u-line u-line-horizontal u-opacity u-opacity-35 u-line-2"></div>
+              {% endfor %}
+            </div>
+            
+          </div>
+          
+        </div>
+      </section>
     
     
     <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-bc29"><div class="u-clearfix u-sheet u-sheet-1">
         <p class="u-small-text u-text u-text-variant u-text-1">Created by Simran Kathuria</p>
       </div></footer>
-   
+
   </body>
 </html>
