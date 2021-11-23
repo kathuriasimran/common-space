@@ -7,8 +7,8 @@ import datetime
 class Blogposts(db.Model):
     __tablename__ = 'blogposts'
     id = db.Column(db.Integer, primary_key=True,  autoincrement=True)
-    title = db.Column(db.String(50))
-    subtitle = db.Column(db.String(50))
+    title = db.Column(db.String(500))
+    subtitle = db.Column(db.String(500))
     date_posted = db.Column(db.DateTime)
     content = db.Column(db.Text)
     image_file = db.Column(db.String(200), nullable=False, default='default.jpg')

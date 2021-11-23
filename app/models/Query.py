@@ -6,7 +6,7 @@ import datetime
 class Query(db.Model):
     __tablename__ = 'query'
     id = db.Column(db.Integer, primary_key=True,  autoincrement=True)
-    title = db.Column(db.String(50))
+    title = db.Column(db.Text)
     body = db.Column(db.Text)
     date_posted = db.Column(db.DateTime)
     username = db.Column(db.String(50) )

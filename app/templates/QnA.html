@@ -74,15 +74,13 @@
             </div>
           </form>
         </div>
-        <a href="{{url_for('ask')}}" data-page-id="392009870" class="u-align-right u-border-2 u-border-black u-btn u-btn-round u-button-style u-hover-black u-none u-radius-36 u-text-black u-text-hover-white u-btn-2">Add Question</a><!--blog--><!--blog_options_json--><!--{"type":"Recent","source":"","tags":"","count":""}--><!--/blog_options_json-->
+        <a href="{{url_for('ask')}}" data-page-id="392009870" class="u-align-right u-border-2 u-border-black u-btn u-btn-round u-button-style u-hover-black u-none u-radius-36 u-text-black u-text-hover-white u-btn-2">Ask Question</a><!--blog--><!--blog_options_json--><!--{"type":"Recent","source":"","tags":"","count":""}--><!--/blog_options_json-->
         <div class="u-blog u-expanded-width-md u-expanded-width-sm u-expanded-width-xs u-layout-grid u-blog-1">
           <div class="u-repeater u-repeater-1"><!--blog_post-->
             {% for query in queries %}
             <div class="u-align-left u-blog-post u-container-style u-repeater-item u-shape-rectangle">
               <div class="u-container-layout u-similar-container u-container-layout-1"><!--blog_post_header-->
-                <h2 class="u-align-left-lg u-align-left-md u-blog-control u-text u-text-1">
-                  <a class="u-post-header-link" href="blog/post-5.html"><!--blog_post_header_content-->{{query.title}}<!--/blog_post_header_content--></a>
-                </h2><!--/blog_post_header-->
+                <h2 class="u-align-left-lg u-align-left-md u-blog-control u-text u-text-1">{{query.title}}</h2>
                 <a href="{{url_for('Answers',query_id = query.id)}}" data-page-id="89699039" class="u-active-none u-border-2 u-border-palette-1-base u-btn u-btn-rectangle u-button-style u-hover-none u-none u-radius-0 u-btn-3">Answers</a><!--blog_post_metadata-->
                 <div class="u-align-left-md u-align-left-sm u-align-left-xs u-blog-control u-metadata u-text-grey-40 u-metadata-1"><!--blog_post_metadata_date-->
                   <span class="u-meta-date u-meta-icon"><!--blog_post_metadata_date_content-->{{query.date_posted.strftime('%Y-%m-%d')}}<!--/blog_post_metadata_date_content--></span><!--/blog_post_metadata_date--><!--blog_post_metadata_comments-->

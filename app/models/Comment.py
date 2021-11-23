@@ -13,7 +13,7 @@ class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True,  autoincrement=True)
     content = db.Column(db.Text, nullable=False)
     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.datetime.now())
-    post_id = db.Column(db.Integer, db.ForeignKey('query.id',ondelete='SET NULL'), nullable=False)
+    post_id = db.Column(db.Integer, db.ForeignKey('query.id'), nullable=False)
     username = db.Column(db.String(50))
     
 
