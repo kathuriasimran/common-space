@@ -8,8 +8,8 @@ from app import db
 import datetime
 
 
-class Comment(db.Model):
-    __tablename__ = 'comment'
+class Answer(db.Model):
+    __tablename__ = 'answer'
     id = db.Column(db.Integer, primary_key=True,  autoincrement=True)
     content = db.Column(db.Text, nullable=False)
     date_posted = db.Column(db.DateTime, nullable=False, default=datetime.datetime.now())
@@ -24,14 +24,14 @@ class Comment(db.Model):
 
 
 def insert(answer,query_id, username):
-    insert = Comment(content=answer, post_id=query_id, username=username)
+    insert = Answer(content=answer, post_id=query_id, username=username)
     db.session.add(insert)
     db.session.commit()
     return True
 
 
 def fetch_answers(query_id):
-    answers = Comment.query.filter_by(post_id = query_id).all()
+    answers = Answer.query.filter_by(post_id = query_id).all()
     return (answers)
 
 

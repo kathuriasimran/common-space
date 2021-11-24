@@ -5,12 +5,13 @@ import datetime
 
 class Query(db.Model):
     __tablename__ = 'query'
+    
     id = db.Column(db.Integer, primary_key=True,  autoincrement=True)
     title = db.Column(db.Text)
     body = db.Column(db.Text)
     date_posted = db.Column(db.DateTime)
     username = db.Column(db.String(50) )
-    comments = db.relationship('Comment',cascade="all, delete", backref='question', lazy=True)
+    answers = db.relationship('Answer',cascade="all, delete", backref='question', lazy=True)
 
     def __init__(self, title, body, username):
         self.title = title
@@ -45,3 +46,7 @@ def deletequestion(id):
     db.session.delete(obj)
     db.session.commit()
     return True
+
+def search(search):
+    info = Query.query.filter(Query.body.like(search)).all()
+    return (info)

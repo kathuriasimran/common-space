@@ -9,13 +9,12 @@ from app import app
 import re
 
 from logging.handlers import RotatingFileHandler
-from app.models import Blogpost, Accounts, Query, Comment
+from app.models import Blogpost, Accounts, Query, Answer
 from sqlalchemy.orm import load_only
 from flask import render_template, request, redirect, url_for,session
 from app import  db
 from werkzeug.utils import redirect
 import os
-
 
 
 
@@ -87,6 +86,8 @@ def search():
 
 
 
+
+
 @app.route('/feeds/Add_Post')
 def addpost():
     if session.get('logged_in') == True:   
@@ -98,8 +99,8 @@ def addpost():
 @app.route('/feed/Add_post/Add', methods=['GET','POST'])
 def add():
     if session.get('logged_in') == True:   
-        title = request.form['title']
-        if 'file'  in request.files:
+        
+        if 'file' in request.files:
             image = request.files['file']
             image_name = image.filename
             image_path = os.path.join(app.config['UPLOAD_FOLDER_BLOG'], image_name)
@@ -107,6 +108,7 @@ def add():
         else:
             image_name = "default.jpg"
 
+        title = request.form['title']
         subtitle = request.form['subtitle']
         content = request.form['content']
         author=session['username']
@@ -117,7 +119,7 @@ def add():
         else:
             msg = "Error Inserting record"
     else:
-            return render_template('Login.html', msg="Login First")
+        return render_template('Login.html', msg="Login First")
 
 
 @app.route('/feeds/Post/<int:id>/')
@@ -140,42 +142,42 @@ def Show_post():
 
 @app.route('/SignUp', methods=['GET','POST'])
 def signup():
-        if request.method == 'POST':
-            if 'firstname' in request.form and 'lastname' in request.form and 'username' in request.form and 'email' in request.form and 'password' in request.form :
-                app.logger.info("User Registeration started")
-                # Create variables for easy access
-                firstname = request.form ['firstname']
-                lastname = request.form ['lastname']
-                username = request.form['username']
-                email = request.form['email']
-                password = request.form['password']
-                app.logger.info("Recieved user input as FirstName: "+firstname + " LastName: "+lastname+" username:"+username+" email:"+email+" password:"+"xxxxxxx")
+    if request.method == 'POST':
+        if 'firstname' in request.form and 'lastname' in request.form and 'username' in request.form and 'email' in request.form and 'password' in request.form :
+            app.logger.info("User Registeration started")
+            # Create variables for easy access
+            firstname = request.form ['firstname']
+            lastname = request.form ['lastname']
+            username = request.form['username']
+            email = request.form['email']
+            password = request.form['password']
+            app.logger.info("Recieved user input as FirstName: "+firstname + " LastName: "+lastname+" username:"+username+" email:"+email+" password:"+"xxxxxxx")
                 
-                account = Accounts.account_exist(username,email)
-                # If account exists show error and validation checks
-                if account:
-                    msg = 'Account already exists!'
-                elif not re.match(r'[^@]+@[^@]+\.[^@]+', email):
-                    msg = 'Invalid email address!'
-                elif not re.match(r'[A-Za-z0-9]+', username):
-                    msg = 'Username must contain only characters and numbers!'
-                elif not username or not password or not email or not firstname or not lastname:
-                    msg = 'Please fill out the form!'
-                else:
-                    # Account doesnt exists and the form data is valid, now insert new account into accounts table
-                    insert = Accounts.insert(firstname, lastname,username,email,password)
-                    if insert:
-                        msg = str("You have successfully registered!") 
-                    else:
-                        msg = str("Error Inserting record")
-            else:
+            account = Accounts.account_exist(username,email)
+            # If account exists show error and validation checks
+            if account:
+                msg = 'Account already exists!'
+            elif not re.match(r'[^@]+@[^@]+\.[^@]+', email):
+                msg = 'Invalid email address!'
+            elif not re.match(r'[A-Za-z0-9]+', username):
+                msg = 'Username must contain only characters and numbers!'
+            elif not username or not password or not email or not firstname or not lastname:
                 msg = 'Please fill out the form!'
+            else:
+                # Account doesnt exists and the form data is valid, now insert new account into accounts table
+                insert = Accounts.insert(firstname, lastname,username,email,password)
+                if insert:
+                    msg = str("You have successfully registered!") 
+                else:
+                    msg = str("Error Inserting record")
+        else:
+            msg = 'Please fill out the form!'
 
-            app.logger.info("Register Returned message as "+msg)
-            return redirect(url_for('signup_message', msg=msg))
+        app.logger.info("Register Returned message as "+msg)
+        return redirect(url_for('signup_message', msg=msg))
 
-        elif request.method == 'GET':
-            return render_template("Register.html")
+    elif request.method == 'GET':
+        return render_template("Register.html")
     
 
 
@@ -231,12 +233,10 @@ def edit_question():
 @app.route('/profile/edit-question/delete/<int:_id>')
 def delete_question(_id):
     if session.get('logged_in') == True: 
-        #delete_comment=Comment.delete_answers(id)
         if(Query.deletequestion(_id)):
             return redirect(url_for('edit_question'))
     else:
         return render_template('Login.html', msg="Login First")
-
 
 
 @app.route('/profile/edit')
@@ -277,6 +277,19 @@ def QnA():
         return render_template('Login.html', msg="Login First")
 
 
+@app.route('/QnA/search' , methods=['GET','POST'])
+def search_question():
+    if session.get('logged_in') == True:
+            if request.method =='POST':
+                form = request.form
+                search_value=form['search']
+                search = "%{}%".format(search_value)
+                result = Query.search(search)
+                return render_template("QnA.html",queries=result)
+    else:
+        return render_template('Login.html', msg="Login First")
+
+
 @app.route('/QnA/ask')
 def ask():
     if session.get('logged_in') == True:
@@ -304,7 +317,7 @@ def Qna_add():
 def Answers(query_id):
     if session.get('logged_in') == True:
         query=Query.fetch(query_id)
-        answers=Comment.fetch_answers(query_id)
+        answers=Answer.fetch_answers(query_id)
         return render_template('Answer-page.html',query=query,answers=answers)
     else:
         return render_template('Login.html', msg="Login First")
@@ -323,7 +336,7 @@ def answer_page(query_id):
     if session.get('logged_in') == True:
         if 'answer' in request.form:
             answer = request.form['answer']
-            insert=Comment.insert(answer,query_id,session['username'])
+            insert=Answer.insert(answer,query_id,session['username'])
             if insert:
                 return redirect(url_for('Answers', query_id = query_id))
             else:

@@ -19,7 +19,7 @@ class Accounts(db.Model):
 
 
 
-    #answer = db.relationship('Comment', backref='answer', lazy=True)
+    
 
     def __init__(self, firstname, lastname,username,email,password,image_file):
         self.firstname = firstname

@@ -16,11 +16,14 @@ app.config['SESSION_TYPE'] = 'filesystem'
 
 app.config['SESSION_PERMANENT']=False
 
-folder_path = os.path.abspath(os.path.dirname(__file__))
-app.config['UPLOAD_FOLDER_BLOG'] = folder_path+"/static/image/blog/"
-app.config['UPLOAD_FOLDER_PROFILE'] = folder_path+"/static/image/profile/"
+folder_path = os.getcwd()
 
-app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:simran@localhost/test10"
+app.config['UPLOAD_FOLDER_BLOG'] =  os.path.join(folder_path, r"/static/image/blog/")
+print(app.config['UPLOAD_FOLDER_BLOG'])
+app.config['UPLOAD_FOLDER_PROFILE'] = os.path.join(folder_path, r"/static/image/profile/")
+print(app.config['UPLOAD_FOLDER_PROFILE'])
+
+app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://root:simran@localhost/common_space"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = True
 db = SQLAlchemy(app)
 
