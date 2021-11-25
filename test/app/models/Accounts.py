@@ -52,10 +52,6 @@ def update(_id, firstname, lastname,image_file):
     update=Accounts.query.filter_by(id=_id).update(dict(firstname=firstname, lastname=lastname,image_file=image_file))
     db.session.commit()
 
-def update_fl(_id, firstname, lastname):
-    update=Accounts.query.filter_by(id=_id).update(dict(firstname=firstname, lastname=lastname))
-    db.session.commit()
-
 
 def fetch(_id):
     user = Accounts.query.filter_by(id = _id).first()
