@@ -1,4 +1,4 @@
-# Microsoft Engage 2021
+<!-- # Microsoft Engage 2021 -->
 
 ## Problem Statement  
 Build a functional prototype of a platform that gives students an array of digital academic and social tools to stay engaged with their studies, peers and broader university community during pandemic.
@@ -77,5 +77,5 @@ config.json
 
 
 
-## COMMON SPACE
-<img src="Readme_content/New video.gif" />
+<!-- ## COMMON SPACE
+<img src="Readme_content/New video.gif" /> -->
