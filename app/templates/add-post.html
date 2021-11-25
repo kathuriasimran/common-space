@@ -68,7 +68,7 @@
               <div class="u-container-style u-layout-cell u-right-cell u-shape-rectangle u-size-17 u-layout-cell-1">
                 <div class="u-container-layout u-container-layout-1">
                   <img class="u-image u-image-contain u-image-default u-image-1" src="{{url_for('static',filename='image/blog/default.jpg')}}" data-image-width="1280" data-image-height="800">
-                  <input form="myform" type="file" name="file" class="u-border-2  u-btn u-btn-round u-button-style u-hover-black u-none u-radius-15 u-text-black u-text-hover-white u-btn-1"></input>
+                  <input form="myform" type="file"  accept="image/*" name="file" class="u-border-2  u-btn u-btn-round u-button-style u-hover-black u-none u-radius-15 u-text-black u-text-hover-white u-btn-1"></input>
                 </div>
               </div>
               <div class="u-align-center u-container-style u-layout-cell u-left-cell u-shape-rectangle u-size-43 u-layout-cell-2">
@@ -77,11 +77,11 @@
                     <form action="{{url_for('add')}}" enctype="multipart/form-data" id="myform" method="POST" class="u-clearfix u-form-custom-backend u-form-spacing-19 u-form-vertical u-inner-form" style="padding: 0;" source="custom" name="form" redirect="true">
                       <div class="u-form-group u-form-name u-form-group-1">
                         <label for="name-daf4" class="u-form-control-hidden u-label">Name</label>
-                        <input type="text" placeholder="Title" id="name-daf4" name="title" class="u-border-2 u-border-white u-input u-input-rectangle u-radius-12 u-white" required="">
+                        <input type="text" placeholder="Title" id="name-daf4" name="title" class="u-border-2 u-border-white u-input u-input-rectangle u-radius-12 u-white" required="required">
                       </div>
                       <div class="u-form-group u-form-group-2">
                         <label for="email-daf4" class="u-form-control-hidden u-label">Email</label>
-                        <input type="text" placeholder="Subject" id="email-daf4" name="subtitle" class="u-border-2 u-border-white u-input u-input-rectangle u-radius-12 u-white" required="required">
+                        <input type="text" placeholder="Subject" id="email-daf4" name="subtitle" class="u-border-2 u-border-white u-input u-input-rectangle u-radius-12 u-white" >
                       </div>
                       <div class="u-form-group u-form-message u-form-group-3">
                         <label for="message-daf4" class="u-form-control-hidden u-label">Message</label>

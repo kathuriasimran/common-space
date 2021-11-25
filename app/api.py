@@ -1,5 +1,6 @@
 from enum import Flag
 from os import access, name
+from flask.wrappers import Request
 from sqlalchemy.orm import query
    
 
@@ -253,10 +254,14 @@ def edit_form():
     if session.get('logged_in') == True:
         firstname = request.form['firstname']
         lastname = request.form['lastname']
+        print(firstname,lastname)
+        print(request.files)
         if 'file' in request.files:
             image = request.files['file']
             image_name = image.filename
+            print(image_name)
             image_path = os.path.join(app.config['UPLOAD_FOLDER_PROFILE'], image_name)
+            print(image_path)
             image.save(image_path)
         else:
             image_name = "dp.png"
