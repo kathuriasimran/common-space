@@ -18,9 +18,6 @@ class Accounts(db.Model):
     created_time = db.Column(DateTime(), nullable=False)
 
 
-
-    
-
     def __init__(self, firstname, lastname,username,email,password,image_file):
         self.firstname = firstname
         self.lastname = lastname

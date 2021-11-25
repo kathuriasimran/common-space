@@ -8,4 +8,4 @@ if __name__ == '__main__':
     handler.setLevel(logging.INFO)
     app.logger.addHandler(handler)
     db.create_all()
-    app.run(debug=True,use_reloader=True,threaded=True)
+    app.run(port=8000,debug=True,use_reloader=True,threaded=True)
