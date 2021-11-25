@@ -1,15 +1,9 @@
-from enum import Flag
 from os import access, name
-from flask.wrappers import Request
-from sqlalchemy.orm import query
-   
-
 from sqlalchemy.orm.query import Query
 #from sqlalchemy.util.compat import dataclass_fields
 from app import app
 import re
 
-from logging.handlers import RotatingFileHandler
 from app.models import Blogpost, Accounts, Query, Answer
 from sqlalchemy.orm import load_only
 from flask import render_template, request, redirect, url_for,session
@@ -33,7 +27,7 @@ def authenticate():
         username = request.form['username']
         password = request.form['password']
         # Check if account exists using MySQL
-        # account = db.session.query(db.Accounts).filter(db.Accounts.username == username,db.Accounts.password== password).one()
+        
         # If account exists in accounts table in out database
         account = Accounts.account_authenticate(username,password)
         if account:
