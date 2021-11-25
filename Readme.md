@@ -35,7 +35,7 @@ env\Scripts\activate
 pip install -r requirements\dev.txt
 ```
 5. Configure the database and app  
-for detail explaination go to <a href="#How it works">how it work</a> 
+for detail explaination go to <a href="https://github.com/kathuriasimran/common-space#how-it-works">how it work</a> 
 
 6. Run the application and go to [localhost:8000](http://127.0.0.1:8000/) to see the application running:
 ```python
