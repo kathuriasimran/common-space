@@ -1,19 +1,26 @@
-<!-- # Microsoft Engage 2021 -->
+# Microsoft Engage 2021
 
 ## Problem Statement  
 Build a functional prototype of a platform that gives students an array of digital academic and social tools to stay engaged with their studies, peers and broader university community during pandemic.
 
-## Common Space
+#
+## COMMON SPACE
+#### <b> We Unite People </b>
+
+ <img src="Readme_content/logo.png" /> 
+
+ 
+
 It's a blogging + QnA website for enthusiast people from diverse background built solely by me using a completely different stack.
 
 Built using flask 
 * FrontEnd: HTML, CSS, Javascripts
 * Database: MySQL
-
+#
 ## Pre-requisites
 * Python 3.9.9
 * MySQL 8.0
-
+#
 ## Installation Steps
 1. Clone this repository to your desktop
 ``` python 
@@ -35,12 +42,13 @@ env\Scripts\activate
 pip install -r requirements\dev.txt
 ```
 5. Configure the database and app  
-for detail explaination go to <a href="https://github.com/kathuriasimran/common-space#how-it-works">how it work</a> 
+for detail explaination go to <a href="#How it works">how it work</a> 
 
 6. Run the application and go to [localhost:8000](http://127.0.0.1:8000/) to see the application running:
 ```python
 python run.py
 ```
+#
 ## How it works
 
 As mention in point five of installation config look as below 
@@ -76,6 +84,15 @@ config.json
 
 
 
+ 
 
-<!-- ## COMMON SPACE
-<img src="Readme_content/New video.gif" /> -->
+#
+
+## COMMON SPACE
+<img src="Readme_content/New video.gif" />
+
+
+# 
+
+## Contributor 
+Created by <b>Simran Kathuria</b>
