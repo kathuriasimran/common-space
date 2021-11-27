@@ -16,8 +16,6 @@ from flask import render_template, request, redirect, url_for,session
 from app import  db
 from werkzeug.utils import redirect
 import os
-import pytest
-
 
 
 #create a route decorator
@@ -25,7 +23,6 @@ import pytest
 def test_login():
     assert True
     return render_template("Login.html")
-
 
 
 @app.route('/Login/authenticate', methods=['POST'])
@@ -40,7 +37,6 @@ def test_authenticate():
         account = Accounts.account_authenticate(username,password)
         if account:
             # Create session data, we can access this data in other routes
-           
             session['logged_in'] = True
             session['id'] = account.id
             session['username']=account.username
@@ -95,8 +91,6 @@ def test_search():
 
 
 
-
-
 @app.route('/feeds/Add_Post')
 def test_addpost():
     if session.get('logged_in') == True:
@@ -105,6 +99,7 @@ def test_addpost():
     else:
         assert True
         return render_template('Login.html', msg="Login First")
+
 
 
 @app.route('/feed/Add_post/Add', methods=['GET','POST'])
@@ -129,8 +124,8 @@ def test_add():
             assert True
             return redirect(url_for('feed'))
         else:
-            assert msg
             msg = "Error Inserting record"
+            assert msg
     else:
         assert True
         return render_template('Login.html', msg="Login First")
@@ -170,7 +165,6 @@ def test_signup():
             email = request.form['email']
             password = request.form['password']
             app.logger.info("Recieved user input as FirstName: "+firstname + " LastName: "+lastname+" username:"+username+" email:"+email+" password:"+"xxxxxxx")
-                
             account = Accounts.account_exist(username,email)
             # If account exists show error and validation checks
             if account:
@@ -198,7 +192,6 @@ def test_signup():
     elif request.method == 'GET':
         assert True
         return render_template("Register.html")
-    
 
 
 @app.route('/SignUp/<string:msg>')
@@ -209,7 +202,6 @@ def test_signup_message(msg):
     else:
         assert True
         return render_template('Login.html', msg="Login First")
-
 
 
 @app.route('/profile')
@@ -228,7 +220,6 @@ def profile():
         return render_template('Login.html', msg="Login First")
 
 
-
 @app.route('/profile/edit-post')
 def test_edit_post():
     if session.get('logged_in') == True:
@@ -238,6 +229,7 @@ def test_edit_post():
     else:
         assert True
         return render_template('Login.html', msg="Login First")
+
 
 @app.route('/profile/edit-post/delete/<int:id>')
 def test_delete_post(id):
@@ -250,15 +242,16 @@ def test_delete_post(id):
         assert True
         return render_template('Login.html', msg="Login First")
 
+
 @app.route('/profile/edit-question')
 def test_edit_question():
     if session.get('logged_in') == True:
         questions=Query.fetch_question_all(session['username'])
-        assert question
+        assert questions
         return render_template("Edit-question.html", questions=questions)
     else:
-        assert msg
         return render_template('Login.html', msg="Login First")
+
 
 @app.route('/profile/edit-question/delete/<int:_id>')
 def test_delete_question(_id):
@@ -274,7 +267,6 @@ def test_delete_question(_id):
 @app.route('/profile/edit')
 def test_edit():
     if session.get('logged_in') == True:
-        assert username
         return render_template('Edit.html', username=session['username'],user_image=session["user_image"])
     else:
         assert True
@@ -368,7 +360,7 @@ def test_Answers(query_id):
         assert answers
         return render_template('Answer-page.html',query=query,answers=answers)
     else:
-        assert true
+        assert True
         return render_template('Login.html', msg="Login First")
 
 

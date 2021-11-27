@@ -20,6 +20,17 @@ Built using flask
 ## Pre-requisites
 * Python 3.9.9
 * MySQL 8.0
+
+  * Create database
+  ``` mysql
+  CREATE DATABASE common_space;
+  ```
+  * Dump database (Optional step to get dummy data)
+  ```mysql
+    mysql -u<username> -p<password> common_space  < ./dbdump/common_space.sql
+  ```
+Note: find the databases dump file in database folder
+
 #
 ## Installation Steps
 1. Clone this repository to your desktop

@@ -30,4 +30,5 @@ db = SQLAlchemy(app)
 
 
 
-from app import api
+from app import api_test
+
