@@ -89,7 +89,7 @@ config.json
 #
 
 ## COMMON SPACE
-<img src="Readme_content/New video.gif" />
+<img src="images/New video.gif" />
 
 
 # 
