@@ -7,7 +7,7 @@ Build a functional prototype of a platform that gives students an array of digit
 ## COMMON SPACE
 #### <b> We Unite People </b>
 
- <img src="Readme_content/logo.png" /> 
+ <img src="images/logo.png" /> 
 
  
 
@@ -79,7 +79,7 @@ config.json
                         }
 }
 ```
-![Alt text](Readme_content/config.png?raw=true "Config Parameters")
+![Alt text](images/config.png?raw=true "Config Parameters")
 
 
 
