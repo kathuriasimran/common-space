@@ -80,7 +80,7 @@ config.json
 
     "database_conf":   
                         {
-                            "type":"sql",
+                            "type":"mysql",  # This can be mysql / azure_sql
                             "url":"localhost",
                             "port":3306,
                             "database_name":"common_space",
