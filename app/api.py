@@ -136,7 +136,7 @@ def search():
 def addpost():
     #First check if the user in logged in or not
     if session.get('logged_in') == True:   
-        return render_template("Add-Post.html")
+        return render_template("add-post.html")
     #If not logged in redirect to login page
     else:
         return render_template('Login.html', msg="Login First")
@@ -250,7 +250,7 @@ def Answers(query_id):
     if session.get('logged_in') == True:
         query=Query.fetch(query_id)
         answers=Answer.fetch_answers(query_id)
-        return render_template('Answer-page.html',query=query,answers=answers)
+        return render_template('Answer-Page.html',query=query,answers=answers)
     #If not logged in redirect to login page
     else:
         return render_template('Login.html', msg="Login First")
