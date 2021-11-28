@@ -16,8 +16,8 @@
                             "url":"common-space.database.windows.net",
                             "port":1433,
                             "database_name":"common-space",
-                            "username":"root",
-                            "password":"simran"
+                            "username":"simran",
+                            "password":"Qwerty@12345"
 
                         }
 }
