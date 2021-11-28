@@ -7,6 +7,11 @@ Build a functional prototype of a platform that gives students an array of digit
 ## COMMON SPACE
 #### <b> We Unite People </b>
 
+<b> https://common-space.azurewebsites.net/ </b>
+<br>Note: You can create your own account by clicking on register button <br>
+    OR use default credential as <br>
+    <b>UserName: simran    Password: qwerty </b> <br>
+
  <img src="images/logo.png" /> 
 
  
@@ -80,7 +85,7 @@ config.json
 
     "database_conf":   
                         {
-                            "type":"mysql",  # This can be mysql / azure_sql
+                            "type":"mysql",  # This can be mysql / azure_sql 
                             "url":"localhost",
                             "port":3306,
                             "database_name":"common_space",
