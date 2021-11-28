@@ -34,11 +34,11 @@ print(app.config['UPLOAD_FOLDER_PROFILE'])
 
 #Connecting to database
 if app.config["database_conf"]["type"] == "mysql":
-    db_str ="mysql+pymysql://" + app.config["database_conf"]["username"]+":"+app.config["database_conf"]["password"]+"@"+app.config["database_conf"]["url"]+":"+app.config["database_conf"]["port"]+"/"+app.config["database_conf"]["database_name"]
+    db_str ="mysql+pymysql://" + app.config["database_conf"]["username"]+":"+app.config["database_conf"]["password"]+"@"+app.config["database_conf"]["url"]+":"+ str(app.config["database_conf"]["port"]) +"/"+app.config["database_conf"]["database_name"]
     app.config["SQLALCHEMY_DATABASE_URI"] = db_str
 
 elif app.config["database_conf"]["type"] == "azure_sql":
-    db_str = "Driver={ODBC Driver 13 for SQL Server};Server=tcp:"+ app.config["database_conf"]["url"] +","+ app.config["database_conf"]["port"]+";Database="+app.config["database_conf"]["database_name"]+";Uid="+app.config["database_conf"]["username"]+";Pwd="+app.config["database_conf"]["password"]+";Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30"
+    db_str = "Driver={ODBC Driver 13 for SQL Server};Server=tcp:"+ app.config["database_conf"]["url"] +","+ str(app.config["database_conf"]["port"]) +";Database="+app.config["database_conf"]["database_name"]+";Uid="+app.config["database_conf"]["username"]+";Pwd="+app.config["database_conf"]["password"]+";Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30"
     params = urllib.parse.quote_plus(db_str)
     app.config['SQLALCHEMY_DATABASE_URI'] = "mssql+pyodbc:///?odbc_connect=%s" % params
     app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True

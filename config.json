@@ -14,7 +14,7 @@
                         {
                             "type":"azure_sql",
                             "url":"common-space.database.windows.net",
-                            "port":1433,
+                            "port":"1433",
                             "database_name":"common-space",
                             "username":"simran",
                             "password":"Qwerty@12345"
