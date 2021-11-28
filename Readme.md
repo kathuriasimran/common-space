@@ -55,7 +55,7 @@ env\Scripts\activate
 
 4. Install the application requirements:
 ```python
-pip install -r requirements\dev.txt
+pip install -r requirements.txt
 ```
 5. Configure the database and app  
 for detail explaination go to <a href="#How it works">how it work</a> 
