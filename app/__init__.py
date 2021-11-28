@@ -5,7 +5,6 @@ from sqlalchemy.ext.declarative import declarative_base
 import json
 import urllib.parse
 import os
-import pyodbc as pyodbc
 from flask_cors import CORS, cross_origin
 
 #Creating flask app
