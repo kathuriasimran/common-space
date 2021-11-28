@@ -65,17 +65,17 @@
         <div class="u-clearfix u-sheet u-sheet-1">
           <a href="{{url_for('Add_answer',query_id = query.id,msg=' ' )}}" data-page-id="3098207045" class="u-active-palette-2-base u-border-none u-btn u-btn-round u-button-style u-hover-palette-3-light-1 u-palette-3-base u-radius-50 u-btn-1">Add Answer<br>
           </a>
-          <h3 class="u-text u-text-1">{{query.title}}</h3><br>
+          <h3 class="u-text" style="font-weight: bold">{{query.title}}</h3><br>
           <h5 class="u-text ">{{query.body}}</h5>
           <div class="u-align-center u-container-style u-group u-group-1">
             <div class="u-container-layout">
               <div class="u-border-2 u-border-palette-5-base u-expanded-width-sm u-expanded-width-xs u-line u-line-horizontal u-opacity u-opacity-35 u-line-2"></div>
               <h4 class="u-align-center u-text ">ANSWERS</h4>
               <div class="u-border-2 u-border-palette-5-base u-expanded-width-sm u-expanded-width-xs u-line u-line-horizontal u-opacity u-opacity-35 u-line-2"></div>
-              <br><br>
+              
               {% for answer in answers%}
-              <p class="u-text u-text-default u-text-2">{{answer.content}}</p>
-              <h5 class="u-custom-font u-font-pt-sans u-text u-text-default u-text-3">By:<span style="font-weight: 400;"></span><span style="font-weight: 400;"></span>{{answer.username}}&nbsp;<br>Date: {{answer.date_posted.strftime('%Y-%m-%d')}}&nbsp;
+              <p class="u-text-2">{{answer.content}}</p>
+              <h5 class="u-text-2">By:<span style="font-weight: 400;"></span><span style="font-weight: 400;"></span>{{answer.username}}&nbsp;<br>Date: {{answer.date_posted.strftime('%Y-%m-%d')}}&nbsp;
               </h5>
               <div class="u-border-2 u-border-palette-5-base u-expanded-width-sm u-expanded-width-xs u-line u-line-horizontal u-opacity u-opacity-35 u-line-2"></div>
               {% endfor %}
@@ -83,8 +83,8 @@
             
           </div>
           
-        </div>
-      </section>
+          </div>
+          </section>
     
     
     <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-bc29"><div class="u-clearfix u-sheet u-sheet-1">
