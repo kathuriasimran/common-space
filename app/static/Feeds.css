@@ -159,7 +159,7 @@
 
 @media (max-width: 575px) {
   .u-section-1 .u-sheet-1 {
-    min-height: 748px;
+    min-height: 814px;
   }
 
   .u-section-1 .u-form-1 {
@@ -167,11 +167,15 @@
   }
 
   .u-section-1 .u-btn-2 {
+    margin-top: -42px;
+    margin-right: 16px;
+    margin-left: auto;
     padding: 0 15px 0 14px;
   }
 
   .u-section-1 .u-layout-wrap-1 {
     width: 340px;
+    margin-top: 37px;
   }
 
   .u-section-1 .u-image-1 {
