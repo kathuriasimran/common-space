@@ -1,18 +1,13 @@
-from os import access, name
+from flask import render_template, request, redirect, url_for,session
 from sqlalchemy.orm.query import Query
 from app import app
 import re
-
 from app.models import Blogpost, Accounts, Query, Answer
-from sqlalchemy.orm import load_only
-from flask import render_template, request, redirect, url_for,session
-from app import  db
 from werkzeug.utils import redirect
 import os
 
 
-
-#create a route decorator
+#Create a route decorator
 
 #Login page (first page of website)
 @app.route('/')
@@ -21,7 +16,7 @@ def login():
 
 
 # For authenticating credentials
-@app.route('/Login/authenticate', methods=['POST'])
+@app.route('/', methods=['POST'])
 def authenticate():
     if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
         # Create variables for easy access
@@ -121,7 +116,7 @@ def feed():
 
 
 #shows all the posts related to the keywords entered in search bar
-@app.route('/feeds/search' , methods=['GET','POST'])
+@app.route('/feeds' , methods=['GET','POST'])
 def search():
     #First check if the user in logged in or not
     if session.get('logged_in') == True:
@@ -148,7 +143,7 @@ def addpost():
 
 
 #Taking enteries in form for adding post on feed section
-@app.route('/feed/Add_post/Add', methods=['GET','POST'])
+@app.route('/feed/Add_post', methods=['GET','POST'])
 def add():
     #First check if the user in logged in or not
     if session.get('logged_in') == True:   
@@ -195,8 +190,8 @@ def post(id):
     else:
         return render_template('Login.html', msg="Login First")
 
-# QnA page(all questions will appear)
-@app.route('/QnA')
+#QnA page(all questions will appear)
+@app.route('/qna')
 def QnA():
     #First check if the user in logged in or not
     if session.get('logged_in') == True:
@@ -208,7 +203,7 @@ def QnA():
 
 
 #shows all the posts related to the keywords entered in search bar
-@app.route('/QnA/search' , methods=['GET','POST'])
+@app.route('/qna' , methods=['GET','POST'])
 def search_question():
     #First check if the user in logged in or not
     if session.get('logged_in') == True:
@@ -224,7 +219,7 @@ def search_question():
         return render_template('Login.html', msg="Login First")
 
 #For Adding new question in QnA
-@app.route('/QnA/ask')
+@app.route('/qna/ask')
 def ask():
     #First check if the user in logged in or not
     if session.get('logged_in') == True:
@@ -234,7 +229,7 @@ def ask():
         return render_template('Login.html', msg="Login First")
 
 #Taking enteries in form for adding question in QnA section
-@app.route('/QnA/Add_Question' ,methods=['GET','POST'])
+@app.route('/qna/ask' ,methods=['GET','POST'])
 def Qna_add():
      #First check if the user in logged in or not
     if session.get('logged_in') == True:
@@ -363,7 +358,7 @@ def edit():
 
 
 #Taking enteries in form for editing firstname, latsname and display image
-@app.route('/profile/edit/edit_form' , methods=['GET','POST'])
+@app.route('/profile/edit' , methods=['GET','POST'])
 def edit_form():
      #First check if the user in logged in or not
     if session.get('logged_in') == True:
