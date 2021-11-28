@@ -4,7 +4,7 @@ from logging.handlers import RotatingFileHandler
 
 
 if __name__ == '__main__':
-    handler = RotatingFileHandler('INFO4.log', maxBytes=10000, backupCount=1)
+    handler = RotatingFileHandler('./logs/info.log', maxBytes=10000, backupCount=1)
     handler.setLevel(logging.INFO)
     app.logger.addHandler(handler)
     db.create_all()

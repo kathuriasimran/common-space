@@ -12,12 +12,12 @@
 
     "database_conf":   
                         {
-                            "type":"azure_sql",
-                            "url":"common-space.database.windows.net",
-                            "port":1433,
-                            "database_name":"common-space",
-                            "username":"simran",
-                            "password":"Qwerty@12345"
+                            "type":"sql",
+                            "url":"localhost",
+                            "port":3306,
+                            "database_name":"common_space",
+                            "username":"root",
+                            "password":"simran"
 
                         }
 }
